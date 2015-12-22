@@ -1,0 +1,128 @@
+.b-tab {
+    margin: 2em;
+    max-width: 100%;
+}
+
+.b-tab__header {
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+    li {
+        display: inline-block;
+        float: left;
+    }
+}
+
+.b-tab__title {
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: block;
+    margin-right: .5em;
+    padding: 1em 1.5em;
+    transition: all .25s;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.b-tab__title_active {
+    background: #fff;
+    border-bottom-color: #fff;
+    border-top-left-radius: .75em;
+}
+
+.b-tab__content {
+    border: 1px solid #ccc;
+    line-height: 1.5;
+    margin-top: -1px;
+    padding: 1em 2em 3em;
+}
+
+
+// page styles - not used in accordion
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: inline-block;
+}
+
+header {
+    width: 800px;
+    margin: 16px auto;
+    text-align: center;
+}
+
+h1 {
+    margin: 48px 0 0;
+}
+
+h3 {
+    font-size: 17px;
+    font-style: italic;
+    font-weight: 400;
+    margin: 32px 0 48px;
+}
+
+section {
+    border: 1px solid #f0db4f;
+    border-radius: 3px;
+    line-height: 1.75;
+    margin: 0 auto 32px;
+    width: 800px;
+
+    h2 {
+        background: #fefac9;
+        border-bottom: 1px solid #f0db4f;
+        font-size: 14px;
+        margin: 0 0 30px;
+        padding: 10px;
+    }
+
+    p, ul, ol {
+        margin: 0 45px 30px; 
+    }
+
+    ol {
+        margin-left: 25px;
+    }
+
+    a {
+        color: #55acee;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    table {
+        border: 1px solid #eee;
+        border-collapse: collapse;
+        margin: 16px 0;
+
+        tr:nth-child(2n) {
+            background: #f5f5f5;
+        }
+
+        th, td {
+            border: 1px solid #eee;
+            padding: 10px;
+        }
+    }
+
+    code {
+        font-size: 16px;
+    }
+}
+
+.b-tab__content p {
+    margin: 16px 0;
+}
