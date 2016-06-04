@@ -17,7 +17,7 @@
 */
 Tabs = function(options) {
     var elem         = document.getElementById(options.elem),
-        openTab      = options.open || 1,
+        openTab      = options.open || 0,
         titleClass   = "b-tab__title",
         activeClass  = "b-tab__title_active",
         contentClass = "b-tab__content",
