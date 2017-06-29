@@ -13,8 +13,8 @@ Option | Type | Default | Description
 ------ | ---- | ------- | -----------
 elem | string |  | The _id_ of the select container in the HTML markup.
 openTab | number | 0 | Opens this tab initially.
-titleClass | string | b-accordion__title | CSS class of the tab titles. 
-activeClass | string | b-accordion__title_active | CSS class of the currently active tab title. 
+titleClass | string | b-tab__title | CSS class of the tab titles. 
+activeClass | string | b-tab__title_active | CSS class of the currently active tab title. 
 contentClass | string | b-tab__content | CSS class of the tab content containers.
 
 #### Methods
