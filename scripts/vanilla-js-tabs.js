@@ -11,16 +11,16 @@
 * @class
 * @param {string} options.elem - The HTML id of the tabs container.
 * @param {number} [options.openTab = 0] - Render the tabs with this item open.
-* @param {string} [options.titleClass = "b-accordion__title"] - The HTML class of the tab titles.
-* @param {string} [options.activeClass = "b-accordion__title_active"] - The HTML class of the currently active tab title.
-* @param {string} [options.contentClass = "b-accordion__content"] - The HTML class of the tab content.
+* @param {string} [options.titleClass = "b-tab__title"] - The HTML class of the tab titles.
+* @param {string} [options.activeClass = "b-tab__title_active"] - The HTML class of the currently active tab title.
+* @param {string} [options.contentClass = "b-tab__content"] - The HTML class of the tab content.
 */
 Tabs = function(options) {
     var elem         = document.getElementById(options.elem),
         openTab      = options.open || 0,
-        titleClass   = "b-tab__title",
-        activeClass  = "b-tab__title_active",
-        contentClass = "b-tab__content",
+        titleClass   = options.titleClass || "b-tab__title",
+        activeClass  = options.activeClass || "b-tab__title_active",
+        contentClass = options.contentClass || "b-tab__content",
         tabsNum      = elem.querySelectorAll("." + titleClass).length;
         
     render();
