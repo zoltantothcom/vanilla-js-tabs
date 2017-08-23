@@ -1,7 +1,7 @@
-Vanilla Javascript tabs
+Vanilla Javascript Tabs
 -------
 
-Vanilla Javascript tabs - tiny and simple..
+Vanilla Javascript tabs - tiny and simple.
 
 #### Demo
 
