@@ -1,5 +1,4 @@
 # Vanilla JavaScript Tabs
--------
 
 Vanilla JavaScript Tabs - simple and awesome.
 
