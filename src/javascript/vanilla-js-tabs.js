@@ -1,20 +1,20 @@
 /**
-* @fileOverview
-* @author Zoltan Toth
-* @version 1.0.0
-*/
+ * @fileOverview
+ * @author Zoltan Toth
+ * @version 1.0.0
+ */
 
 /**
-* @description
-* Vanilla Javascript Tabs
-*
-* @class
-* @param {string} options.elem - The HTML id of the tabs container.
-* @param {number} [options.openTab = 0] - Render the tabs with this item open.
-* @param {string} [options.titleClass = "js-tabs__title"] - CSS class of the tab titles.
-* @param {string} [options.activeClass = "js-tabs__title_active"] - CSS class of the active title.
-* @param {string} [options.contentClass = "js-tabs__content"] - CSS class of the tab content.
-*/
+ * @description
+ * Vanilla Javascript Tabs
+ *
+ * @class
+ * @param {string} options.elem - The HTML id of the tabs container.
+ * @param {number} [options.openTab = 0] - Render the tabs with this item open.
+ * @param {string} [options.titleClass = "js-tabs__title"] - CSS class of the tab titles.
+ * @param {string} [options.activeClass = "js-tabs__title_active"] - CSS class of the active title.
+ * @param {string} [options.contentClass = "js-tabs__content"] - CSS class of the tab content.
+ */
 var Tabs = function(options) {
     var elem         = document.getElementById(options.elem),
         openTab      = options.open || 0,
@@ -31,7 +31,7 @@ var Tabs = function(options) {
     function render() {
         elem.addEventListener('click', onClick);
         
-        var init = (openTab < 0 || isNaN(openTab) || openTab > tabsNum) ? 0 : openTab;
+        var init = checkTab(openTab);
   
         for (var i = 0; i < tabsNum; i++) {
             elem.querySelectorAll('.' + titleClass)[i].setAttribute('data-index', i);
@@ -65,14 +65,23 @@ var Tabs = function(options) {
     }
     
     /**
-    * Utility function to remove the open class from tab titles.
-    *
-    * @param {string} str - Current class.
-    * @param {string} cls - The class to remove.
-    */
+     * Utility function to remove the open class from tab titles.
+     *
+     * @param {string} str - Current class.
+     * @param {string} cls - The class to remove.
+     */
     function removeClass(str, cls) {
         var reg = new RegExp('(\ )' + cls + '(\)', 'g');
         return str.replace(reg, '');
+    }
+
+    /**
+     * Utility function to remove the open class from tab titles.
+     *
+     * @param n - Tab to open.
+     */
+    function checkTab(n) {
+        return (n < 0 || isNaN(n) || n > tabsNum) ? 0 : n;
     }
     
     /**
@@ -85,8 +94,10 @@ var Tabs = function(options) {
     function open(n) {
         reset();
 
-        elem.querySelectorAll('.' + titleClass)[n].className += ' ' + activeClass;
-        elem.querySelectorAll('.' + contentClass)[n].style.display = '';
+        var i = checkTab(n);
+
+        elem.querySelectorAll('.' + titleClass)[i].className += ' ' + activeClass;
+        elem.querySelectorAll('.' + contentClass)[i].style.display = '';
     }
 
     return {

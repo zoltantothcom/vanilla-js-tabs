@@ -4,7 +4,8 @@ describe('TABS', function() {
         loadFixtures(tabsFixture);
 
         this.tabs = new Tabs({
-            elem: 'tabs'
+            elem: 'tabs',
+            openTab: -123
         });
     });
 
@@ -17,112 +18,56 @@ describe('TABS', function() {
             expect( $('.js-tabs__title').length ).toBeGreaterThan(0);
             expect( $('.js-tabs__content').length ).toBeGreaterThan(0);
         });
-    });
 
+        it('should have the same number of titles and content blocks', function() {
+            var titles = $('.js-tabs__title').length,
+                contents = $('.js-tabs__content').length;
 
-    xdescribe('generated select', function() {
-        it('should be defined', function() {
-            expect( this.select ).toBeDefined();
+            expect(titles).toBe(contents);
         });
 
-        it('should have the container', function() {
-            expect( $('#custom-select') ).toBeDefined();
-        });
-
-        it('should have the main button', function() {
-            expect( $('button.js-Dropdown-title') ).toBeDefined();
-        });
-
-        it('should have the list', function() {
-            expect( $('ul.js-Dropdown-list') ).toBeDefined();
-        });
-
-        it('should have the same number of options as the original', function() {
-            var count = $('#select option').length;
-            expect( $('ul.js-Dropdown-list li').length ).toBe(count);
+        it('should default to 1st tab when open property is invalid', function() {
+            expect( $('.js-tabs__title')[0] ).toHaveClass('js-tabs__title_active');
         });
     });
 
-    xdescribe('methods', function() {
-        it('.open() should open the select', function() {
-            expect( $('.js-Dropdown-list') ).not.toHaveClass('is-open');
-            this.select.open();
-            expect( $('.js-Dropdown-list') ).toHaveClass('is-open');
+    describe('methods', function() {
+        it('should default to 1st tab when .open() argument is invalid', function() {
+            this.tabs.open(-123);
+            expect( $('.js-tabs__title')[0] ).toHaveClass('js-tabs__title_active');
         });
 
-        it('.close() should close the select', function() {
-            this.select.open();
-            expect( $('.js-Dropdown-list') ).toHaveClass('is-open');
-            this.select.close();
-            expect( $('.js-Dropdown-list') ).not.toHaveClass('is-open');
-        });
-
-        it('.toggle() should toggle the select', function() {
-            expect( $('.js-Dropdown-list') ).not.toHaveClass('is-open');
-            this.select.toggle();
-            expect( $('.js-Dropdown-list') ).toHaveClass('is-open');
-            this.select.toggle();
-            expect( $('.js-Dropdown-list') ).not.toHaveClass('is-open');
+        it('.open(2) should open the 3rd tab', function() {
+            expect( $('.js-tabs__title')[2] ).not.toHaveClass('js-tabs__title_active');
+            this.tabs.open(2);
+            expect( $('.js-tabs__title')[2] ).toHaveClass('js-tabs__title_active');
         });
     });
 
-    xdescribe('behavior', function() {
-        it('should open on main button click', function() {
-            expect( $('.js-Dropdown-list') ).not.toHaveClass('is-open');
+    describe('behavior', function() {
+        it('should open the 2nd tab on title click', function() {
+            expect( $('.js-tabs__title')[1] ).not.toHaveClass('js-tabs__title_active');
 
-            var spyEvent = spyOnEvent('.js-Dropdown-title', 'click');
-            $('.js-Dropdown-title').click();
+            var spyEvent = spyOnEvent('.js-tabs__title', 'click');
+            $('.js-tabs__title')[1].click();
 
-            expect('click').toHaveBeenTriggeredOn('.js-Dropdown-title');
+            expect('click').toHaveBeenTriggeredOn('.js-tabs__title');
             expect(spyEvent).toHaveBeenTriggered();
 
-            expect( $('.js-Dropdown-list') ).toHaveClass('is-open');
+            expect(  $('.js-tabs__title')[1] ).toHaveClass('js-tabs__title_active');
         });
 
-        it('should close on any click outside the select', function() {
-            this.select.open();
-            expect( $('.js-Dropdown-list') ).toHaveClass('is-open');
+        it('should ignore any clicks in the content blocks', function() {
+            this.tabs.open(2);
+            expect( $('.js-tabs__title')[2] ).toHaveClass('js-tabs__title_active');
+            
+            var spyEvent = spyOnEvent('.js-tabs__content', 'click');
+            $('.js-tabs__content')[2].click();
 
-            var spyEvent = spyOnEvent('body', 'click');
-            $('body').click();
-
-            expect('click').toHaveBeenTriggeredOn('body');
+            expect('click').toHaveBeenTriggeredOn('.js-tabs__content');
             expect(spyEvent).toHaveBeenTriggered();
 
-            expect( $('.js-Dropdown-list') ).not.toHaveClass('is-open');
-        });
-
-        it('should highlight only the clicked item', function() {
-            this.select.open();
-
-            var spyEvent = spyOnEvent('.js-Dropdown-list li:eq(3)', 'click');
-            $('.js-Dropdown-list li:eq(3)').click();
-
-            expect('click').toHaveBeenTriggeredOn('.js-Dropdown-list li:eq(3)');
-            expect(spyEvent).toHaveBeenTriggered();
-
-            expect( $('.js-Dropdown-list') ).not.toHaveClass('is-open');
-            expect( $('.js-Dropdown-list li:eq(0)') ).not.toHaveClass('is-selected');
-            expect( $('.js-Dropdown-list li:eq(1)') ).not.toHaveClass('is-selected');
-            expect( $('.js-Dropdown-list li:eq(2)') ).not.toHaveClass('is-selected');
-            expect( $('.js-Dropdown-list li:eq(3)') ).toHaveClass('is-selected');
-            expect( $('.js-Dropdown-list li:eq(4)') ).not.toHaveClass('is-selected');
-        });
-
-        it('should set the selected on original', function() {
-            this.select.open();
-
-            var spyEvent = spyOnEvent('.js-Dropdown-list li:eq(4)', 'click');
-            $('.js-Dropdown-list li:eq(4)').click();
-
-            expect('click').toHaveBeenTriggeredOn('.js-Dropdown-list li:eq(4)');
-            expect(spyEvent).toHaveBeenTriggered();
-
-            expect( $('.js-Dropdown-list') ).not.toHaveClass('is-open');
-            expect( $('.js-Dropdown-list li:eq(4)') ).toHaveClass('is-selected');
-
-            expect( $('#select option:eq(0)').prop('selected') ).not.toBeTruthy();
-            expect( $('#select option:eq(4)').prop('selected') ).toBeTruthy();
+            expect(  $('.js-tabs__title')[2] ).toHaveClass('js-tabs__title_active');
         });
     });
 });
