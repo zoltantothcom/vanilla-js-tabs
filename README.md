@@ -6,14 +6,14 @@ Vanilla JavaScript Tabs - simple and awesome.
 *— Inspired by the blazing fast, lightweight, cross-platform and crazy popular [Vanilla JS](http://vanilla-js.com/)  framework.*
 
 
-## Demo
 ---
+## Demo
 
 [Vanilla JavaScript Tabs](http://zoltantothcom.github.io/vanilla-js-tabs)
 
 
-## Settings
 ---
+## Settings
 
 Option | Type | Default | Description
 ------ | ---- | ------- | -----------
@@ -21,16 +21,16 @@ elem | string |  | HTML _id_ of the tab container in the HTML markup.
 open | number | 0 | Opens this tab initially.
 
 
-## Methods
 ---
+## Methods
 
 Method | Type | Description
 ------ | ---- | -----------
 open(n) | number | Opens a tab by index
 
 
-## Usage example
 ---
+## Usage example
 
 ```javascript
 var tabs = new Tabs({
@@ -45,16 +45,16 @@ tabs.open(3);
 ```
 
 
-## Run the tests
 ---
+## Run the tests
 
 ```
 npm test
 ```
 
 
-## Browser support and dependencies
 ---
+## Browser support and dependencies
 
 Browser | Support | Dependencies
 ------ | -------- | -----------
