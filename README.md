@@ -10,7 +10,7 @@ Vanilla JavaScript Tabs - simple and awesome.
 [Vanilla JavaScript Tabs](http://zoltantothcom.github.io/vanilla-js-tabs)
 
 
-## Settings
+## Options
 
 Option | Type | Default | Description
 ------ | ---- | ------- | -----------
