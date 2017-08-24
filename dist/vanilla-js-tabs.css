@@ -24,7 +24,7 @@
 .js-tabs__title:hover {
   text-decoration: none;
 }
-.js-tabs__title_active {
+.js-tabs__title-active {
   background: #fff;
   border-bottom-color: #fff;
   border-top-left-radius: .75em;

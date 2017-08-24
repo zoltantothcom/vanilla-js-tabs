@@ -12,14 +12,14 @@
  * @param {string} options.elem - The HTML id of the tabs container.
  * @param {number} [options.openTab = 0] - Render the tabs with this item open.
  * @param {string} [options.titleClass = "js-tabs__title"] - CSS class of the tab titles.
- * @param {string} [options.activeClass = "js-tabs__title_active"] - CSS class of the active title.
+ * @param {string} [options.activeClass = "js-tabs__title-active"] - CSS class of the active title.
  * @param {string} [options.contentClass = "js-tabs__content"] - CSS class of the tab content.
  */
 var Tabs = function(options) {
     var elem         = document.getElementById(options.elem),
         openTab      = options.open || 0,
         titleClass   = options.titleClass || 'js-tabs__title',
-        activeClass  = options.activeClass || 'js-tabs__title_active',
+        activeClass  = options.activeClass || 'js-tabs__title-active',
         contentClass = options.contentClass || 'js-tabs__content',
         tabsNum      = elem.querySelectorAll('.' + titleClass).length;
         
