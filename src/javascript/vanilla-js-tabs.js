@@ -9,15 +9,12 @@
  * Vanilla Javascript Tabs
  *
  * @class
- * @param {string} options.elem - The HTML id of the tabs container.
- * @param {number} [options.openTab = 0] - Render the tabs with this item open.
- * @param {string} [options.titleClass = "js-tabs__title"] - CSS class of the tab titles.
- * @param {string} [options.activeClass = "js-tabs__title-active"] - CSS class of the active title.
- * @param {string} [options.contentClass = "js-tabs__content"] - CSS class of the tab content.
+ * @param {string} options.elem - HTML id of the tabs container
+ * @param {number} [options.open = 0] - Render the tabs with this item open
  */
 var Tabs = function(options) {
     var elem         = document.getElementById(options.elem),
-        openTab      = options.open || 0,
+        open         = options.open || 0,
         titleClass   = options.titleClass || 'js-tabs__title',
         activeClass  = options.activeClass || 'js-tabs__title-active',
         contentClass = options.contentClass || 'js-tabs__content',
@@ -31,11 +28,11 @@ var Tabs = function(options) {
     function render() {
         elem.addEventListener('click', onClick);
         
-        var init = checkTab(openTab);
+        var init = checkTab(open);
   
         for (var i = 0; i < tabsNum; i++) {
             elem.querySelectorAll('.' + titleClass)[i].setAttribute('data-index', i);
-            if (i === init) open(i);
+            if (i === init) openTab(i);
         }
     }
 
@@ -48,7 +45,7 @@ var Tabs = function(options) {
         if (e.target.className.indexOf(titleClass) === -1) return;
         e.preventDefault();
 
-        open(e.target.getAttribute('data-index'));
+        openTab(e.target.getAttribute('data-index'));
     }
     
     /**
@@ -91,7 +88,7 @@ var Tabs = function(options) {
      * 
      * @public
      */
-    function open(n) {
+    function openTab(n) {
         reset();
 
         var i = checkTab(n);
@@ -101,6 +98,6 @@ var Tabs = function(options) {
     }
 
     return {
-        open: open
+        open: openTab
     };
 };

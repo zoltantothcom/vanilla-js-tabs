@@ -1,52 +1,60 @@
-Vanilla Javascript Tabs
+Vanilla JavaScript Tabs
 -------
 
-Vanilla Javascript tabs - tiny and simple.
+Vanilla JavaScript Tabs - simple and awesome.
 
-#### Demo
+*— Inspired by the blazing fast, lightweight, cross-platform and crazy popular [Vanilla JS](http://vanilla-js.com/)  framework.*
 
-[http://zoltantothcom.github.io/vanilla-js-tabs](http://zoltantothcom.github.io/vanilla-js-tabs)
 
-#### Settings
+## Demo
+---
+
+[Vanilla JavaScript Tabs](http://zoltantothcom.github.io/vanilla-js-tabs)
+
+
+## Settings
+---
 
 Option | Type | Default | Description
 ------ | ---- | ------- | -----------
-elem | string |  | The _id_ of the select container in the HTML markup.
-openTab | number | 0 | Opens this tab initially.
-titleClass | string | js-tabs__title | CSS class of the tab titles. 
-activeClass | string | js-tabs__title-active | CSS class of the currently active tab title. 
-contentClass | string | js-tabs__content | CSS class of the tab content containers.
+elem | string |  | HTML _id_ of the tab container in the HTML markup.
+open | number | 0 | Opens this tab initially.
 
-#### Methods
 
-Methods are called on the select:
-
-```javascript
-// Initialize the tabs
-var tabs = new Tabs({
-  elem: "tabs"
-});
-
-// Open any particular tab
-tabs.open(3);
-```
+## Methods
+---
 
 Method | Type | Description
 ------ | ---- | -----------
 open(n) | number | Opens a tab by index
 
-#### Example
 
-Initialize:
+## Usage example
+---
 
 ```javascript
 var tabs = new Tabs({
     elem: "tabs",
-    openTab: 1
+    open: 1
 });
 ```
 
-#### Browser support and dependencies
+```javascript
+// Open any other tab
+tabs.open(3);
+```
+
+
+## Run the tests
+---
+
+```
+npm test
+```
+
+
+## Browser support and dependencies
+---
 
 Browser | Support | Dependencies
 ------ | -------- | -----------
@@ -54,10 +62,9 @@ Chrome | yes | -
 Firefox | yes | -
 Safari | yes | -
 Opera | yes | -
-IE | yes* | -
+IE9 and up | yes | -
 
-\* _IE9 and up_
 
 #### License
 
-Free. [Unlicense](http://unlicense.org).
+Free to use and modify. [Unlicense](http://unlicense.org).

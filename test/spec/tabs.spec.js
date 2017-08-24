@@ -5,7 +5,7 @@ describe('TABS', function() {
 
         this.tabs = new Tabs({
             elem: 'tabs',
-            openTab: -123
+            open: -123
         });
     });
 
