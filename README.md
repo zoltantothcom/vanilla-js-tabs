@@ -24,7 +24,7 @@ Method | Type | Description
 ------ | ---- | -----------
 open(n) | number | Opens a tab by index
 update(n) | number | Updates the tabs with _n_-th tab open<br />_(useful when dynamically adding tabs)_
-destroy(n) | | Removes the listeners
+destroy() | | Removes the listeners
 
 
 ## Usage example
