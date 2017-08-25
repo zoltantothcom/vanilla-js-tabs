@@ -32,6 +32,29 @@ describe('TABS', function() {
     });
 
     describe('methods', function() {
+        it('should have .open() method', function() {
+            expect(typeof this.tabs.open).toBe('function');
+        });
+
+        it('should have .update() method', function() {
+            expect(typeof this.tabs.update).toBe('function');
+        });
+
+        it('should have .destroy() method', function() {
+            expect(typeof this.tabs.destroy).toBe('function');
+        });
+    });
+
+    describe('method calls', function() {
+        beforeEach(function() {
+            jasmine.getFixtures().fixturesPath = fixturePath;
+            loadFixtures(tabsFixture);
+    
+            this.tabs = new Tabs({
+                elem: 'tabs'
+            });
+        });
+
         it('should default to 1st tab when .open() argument is invalid', function() {
             this.tabs.open(-123);
             expect( $('.js-tabs__title')[0] ).toHaveClass('js-tabs__title-active');
@@ -41,6 +64,27 @@ describe('TABS', function() {
             expect( $('.js-tabs__title')[2] ).not.toHaveClass('js-tabs__title-active');
             this.tabs.open(2);
             expect( $('.js-tabs__title')[2] ).toHaveClass('js-tabs__title-active');
+        });
+
+        it('.update(2) should reset the tabs with 3rd tab open', function() {
+            expect( $('.js-tabs__title')[0] ).toHaveClass('js-tabs__title-active');
+            expect( $('.js-tabs__title')[2] ).not.toHaveClass('js-tabs__title-active');
+            this.tabs.update(2);
+            expect( $('.js-tabs__title')[2] ).toHaveClass('js-tabs__title-active');
+        });
+
+        it('should not react to clicks after destroy()', function() {
+            expect( $('.js-tabs__title')[0] ).toHaveClass('js-tabs__title-active');
+
+            this.tabs.destroy();
+
+            var spyEvent = spyOnEvent('.js-tabs__title', 'click');
+            $('.js-tabs__title')[1].click();
+
+            expect('click').toHaveBeenTriggeredOn('.js-tabs__title');
+            expect(spyEvent).toHaveBeenTriggered();
+
+            expect(  $('.js-tabs__title')[1] ).not.toHaveClass('js-tabs__title-active');
         });
     });
 

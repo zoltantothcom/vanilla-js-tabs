@@ -15,9 +15,9 @@
 var Tabs = function(options) {
     var elem         = document.getElementById(options.elem),
         open         = options.open || 0,
-        titleClass   = options.titleClass || 'js-tabs__title',
-        activeClass  = options.activeClass || 'js-tabs__title-active',
-        contentClass = options.contentClass || 'js-tabs__content',
+        titleClass   = 'js-tabs__title',
+        activeClass  = 'js-tabs__title-active',
+        contentClass = 'js-tabs__content',
         tabsNum      = elem.querySelectorAll('.' + titleClass).length;
         
     render();
@@ -25,10 +25,10 @@ var Tabs = function(options) {
     /**
      * Initial rendering of the tabs.
      */
-    function render() {
+    function render(n) {
         elem.addEventListener('click', onClick);
-        
-        var init = checkTab(open);
+
+        var init = (n == null) ? checkTab(open) : checkTab(n);
   
         for (var i = 0; i < tabsNum; i++) {
             elem.querySelectorAll('.' + titleClass)[i].setAttribute('data-index', i);
@@ -44,7 +44,6 @@ var Tabs = function(options) {
     function onClick(e) {
         if (e.target.className.indexOf(titleClass) === -1) return;
         e.preventDefault();
-
         openTab(e.target.getAttribute('data-index'));
     }
     
@@ -97,7 +96,31 @@ var Tabs = function(options) {
         elem.querySelectorAll('.' + contentClass)[i].style.display = '';
     }
 
+    /**
+     * Updates the tabs.
+     * 
+     * @param {number} n - Index of tab to open. Starts at 0.
+     * 
+     * @public
+     */
+    function update(n) {
+        destroy();
+        reset();
+        render(n);
+    }
+
+    /**
+     * Removes the listeners from the tabs.
+     * 
+     * @public
+     */
+    function destroy() {
+        elem.removeEventListener('click', onClick);
+    }
+
     return {
-        open: openTab
+        open: openTab,
+        update: update,
+        destroy: destroy
     };
 };
