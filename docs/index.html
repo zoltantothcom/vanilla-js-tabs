@@ -80,23 +80,43 @@
             <li>
                 Write your tabs markup
 
-                <pre><code class="language-markup">&lt;select id="color-select" name="color">
-    &lt;option value="yellow">Yellow&lt;/option>
-    &lt;option value="crimson">Crimson&lt;/option>
-    &lt;option value="turquoise">Turquoise&lt;/option>
-    &lt;option value="magenta" selected>Magenta&lt;/option>
-    &lt;option value="chartreuse">Chartreuse&lt;/option>
-&lt;/select>
+                <pre><code class="language-markup">&lt;div class="js-tabs" id="tabs">
+                        
+    &lt;ul class="js-tabs__header">
+        &lt;li>&lt;a href="#" class="js-tabs__title">Title 1&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#" class="js-tabs__title">Title 2&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#" class="js-tabs__title">Title 3&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#" class="js-tabs__title">Title 4&lt;/a>&lt;/li>
+    &lt;/ul>
+    
+    &lt;div class="js-tabs__content">
+        &lt;h1>ONE&lt;/h1>
+    &lt;/div>
+
+    &lt;div class="js-tabs__content">
+        &lt;h1>TWO&lt;/h1>
+    &lt;/div>
+
+    &lt;div class="js-tabs__content">
+        &lt;h1>THREE&lt;/h1>
+    &lt;/div>
+
+    &lt;div class="js-tabs__content">
+        &lt;h1>FOUR&lt;/h1>
+    &lt;/div>
+    
+&lt;/div>
 </code></pre>
             </li>
             <li>
-                Initialize the select
-                <pre><code class="language-javascript">var select = new CustomSelect({
-    elem: "color-select",  // id of the original select element
+                Initialize the tabs
+                <pre><code class="language-javascript">var tabs = new Tabs({
+    elem: "tabs",
+    open: 2
 });
 
-// Open the select
-select.open();</code></pre>
+// Open any other tab
+tabs.open(4);</code></pre>
             </li>
         </ol>
     </section>
