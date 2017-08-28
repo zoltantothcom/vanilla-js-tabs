@@ -1,5 +1,7 @@
 # Vanilla JavaScript Tabs
 
+[![Build Status](https://travis-ci.org/zoltantothcom/vanilla-js-tabs.svg?branch=master)](https://travis-ci.org/zoltantothcom/vanilla-js-tabs) [![Coverage Status](https://coveralls.io/repos/github/zoltantothcom/vanilla-js-tabs/badge.svg?branch=master)](https://coveralls.io/github/zoltantothcom/vanilla-js-tabs?branch=master) [![Code Climate](https://codeclimate.com/github/zoltantothcom/vanilla-js-tabs/badges/gpa.svg)](https://codeclimate.com/github/zoltantothcom/vanilla-js-tabs) ![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)
+
 Vanilla JavaScript Tabs - simple and awesome.
 
 *— Inspired by the blazing fast, lightweight, cross-platform and crazy popular [Vanilla JS](http://vanilla-js.com/)  framework.*
