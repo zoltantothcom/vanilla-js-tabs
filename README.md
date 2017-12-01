@@ -9,7 +9,7 @@ Vanilla JavaScript Tabs - simple and awesome.
 
 ## Demo
 
-[Vanilla JavaScript Tabs](http://zoltantothcom.github.io/vanilla-js-tabs)
+[TABS](http://zoltantothcom.github.io/vanilla-js-tabs)
 
 
 ## Options
