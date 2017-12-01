@@ -44,7 +44,7 @@ tabs.open(3);
 ```
 
 
-## Run the tests
+## Running the tests
 
 ```
 npm test
@@ -64,4 +64,15 @@ IE9 and up | yes | -
 
 ## License
 
-Free to use and modify. [Unlicense](http://unlicense.org).
+Anyone is free to copy, modify, publish, use, compile, sell, or distribute this software, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any means.
+
+See [Unlicense](http://unlicense.org) for full details.
+
+
+## Related
+
+* [Vanilla JavaScript **Carousel**](https://github.com/zoltantothcom/vanilla-js-carousel)
+* [Vanilla JavaScript **Dropdown**](https://github.com/zoltantothcom/vanilla-js-dropdown)
+* [Vanilla JavaScript **Tooltip**](https://github.com/zoltantothcom/vanilla-js-tooltip)
+* [Vanilla JavaScript **Accordion**](https://github.com/zoltantothcom/vanilla-js-accordion)
+
