@@ -124,3 +124,4 @@ var Tabs = function(options) {
         destroy: destroy
     };
 };
+export default Tabs;
