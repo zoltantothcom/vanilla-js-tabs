@@ -15,7 +15,7 @@ var banner = ['/**',
 	' */',
 	''].join('\n');
 
-gulp.task('script', function() {
+gulp.task('script', function(done) {
 	gulp.src(['./src/javascript/vanilla-js-tabs.js'])
 		.pipe(uglify())
 		.pipe(header(banner, { 
@@ -26,30 +26,38 @@ gulp.task('script', function() {
 		}))
 		.pipe(gulp.dest('./dist'))
 		.pipe(gulp.dest('./docs/javascript'));
+
+		done();
 });
 
-gulp.task('markup', function() {
+gulp.task('markup', function(done) {
 	gulp.src('./src/index.pug')
 		.pipe(pug({
 			pretty: true
 		}))
 		.pipe(gulp.dest('./dist'));
+
+		done();
 });
 
-gulp.task('styles', function() {
+gulp.task('styles', function(done) {
 	gulp.src('./src/styles/*.less')
 		.pipe(less())
 		.pipe(gulp.dest('./dist'))
 		.pipe(gulp.dest('./docs/styles'));
+
+		done();
 });
 
-gulp.task('docs-styles', function() {
+gulp.task('docs-styles', function(done) {
 	gulp.src('./docs/styles/*.less')
 		.pipe(less())
 		.pipe(clean({ 
 			compatibility: 'ie9' 
 		}))
 		.pipe(gulp.dest('./docs/styles'));
+
+		done();
 });
 
 gulp.task('lint', function() {
@@ -58,4 +66,4 @@ gulp.task('lint', function() {
         .pipe(jshint.reporter(stylish));
 });
 
-gulp.task('default', [ 'script', 'markup', 'styles', 'docs-styles', 'lint' ]);
+gulp.task('default', gulp.series('script', 'markup', 'styles', 'docs-styles', 'lint'));

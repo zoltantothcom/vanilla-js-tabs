@@ -17,9 +17,9 @@
   border: 1px solid #ccc;
   cursor: pointer;
   display: block;
-  margin-right: .5em;
+  margin-right: 0.5em;
   padding: 1em 1.5em;
-  transition: all .25s;
+  transition: all 0.25s;
 }
 .js-tabs__title:hover {
   text-decoration: none;
@@ -27,7 +27,7 @@
 .js-tabs__title-active {
   background: #fff;
   border-bottom-color: #fff;
-  border-top-left-radius: .75em;
+  border-top-left-radius: 0.75em;
 }
 .js-tabs__content {
   border: 1px solid #ccc;
