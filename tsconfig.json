@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "sourceMap": true,
+    "declaration": false,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "types": ["jasmine", "jasmine-jquery"]
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"],
+  "exclude": ["node_modules"]
+}
