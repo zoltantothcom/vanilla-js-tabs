@@ -1,66 +1,108 @@
-class Tabs {
-    constructor(options) {
-        this.titleClass = "js-tabs__title";
-        this.activeClass = "js-tabs__title-active";
-        this.contentClass = "js-tabs__content";
-        const elem = document.getElementById(options.elem);
-        if (elem == null) {
-            return;
-        }
-        this.elem = elem;
-        this.open = options.open || 0;
-        this.tabsNum = this.elem.querySelectorAll("." + this.titleClass).length;
-        this.render();
-    }
-    render(n) {
-        this.elem.addEventListener("click", this.onClick);
-        const init = n == null ? this.checkTab(this.open) : this.checkTab(n);
-        for (let i = 0; i < this.tabsNum; i++) {
-            this.elem
-                .querySelectorAll("." + this.titleClass)[i].setAttribute("data-index", i.toString());
+/**
+ * @fileOverview
+ * @author Zoltan Toth
+ * @version 2.0.0
+ */
+let Tabs = function (options) {
+    const el = document.getElementById(options.elem);
+    if (!el)
+        throw new Error(`Element with ID "${options.elem}" not found`);
+    const elem = el;
+    let open = options.open || 0;
+    const titleClass = "js-tabs__title";
+    const activeClass = "js-tabs__title-active";
+    const contentClass = "js-tabs__content";
+    const tabsNum = elem.querySelectorAll(`.${titleClass}`).length;
+    render();
+    /**
+     * Initial rendering of the tabs.
+     */
+    function render(n) {
+        elem.addEventListener("click", onClick);
+        const init = n == null ? checkTab(open) : checkTab(n);
+        for (let i = 0; i < tabsNum; i++) {
+            elem.querySelectorAll(`.${titleClass}`)[i].setAttribute("data-index", i.toString());
             if (i === init)
-                this.openTab(i);
+                openTab(i);
         }
     }
-    onClick(e) {
-        if (!(e.target instanceof HTMLElement))
-            return;
-        if (e.target.className.indexOf(this.titleClass) === -1)
+    /**
+     * Handle clicks on the tabs.
+     *
+     * @param {object} e - Element the click occured on.
+     */
+    function onClick(e) {
+        const target = e.target;
+        if (!target || target.className.indexOf(titleClass) === -1)
             return;
         e.preventDefault();
-        const target = e.target.getAttribute("data-index");
-        if (target == null) {
-            return;
-        }
-        this.openTab(parseInt(target));
+        openTab(parseInt(target.getAttribute("data-index") || "0"));
     }
-    reset() {
-        [].forEach.call(this.elem.querySelectorAll("." + this.contentClass), (item) => {
+    /**
+     * Hide all tabs and re-set tab titles.
+     */
+    function reset() {
+        [].forEach.call(elem.querySelectorAll(`.${contentClass}`), (item) => {
             item.style.display = "none";
         });
-        [].forEach.call(this.elem.querySelectorAll("." + this.titleClass), (item) => {
-            item.className = this.removeClass(item.className, this.activeClass);
+        [].forEach.call(elem.querySelectorAll(`.${titleClass}`), (item) => {
+            item.className = removeClass(item.className, activeClass);
         });
     }
-    removeClass(str, cls) {
+    /**
+     * Utility function to remove the open class from tab titles.
+     *
+     * @param {string} str - Current class.
+     * @param {string} cls - The class to remove.
+     */
+    function removeClass(str, cls) {
         const reg = new RegExp(`(\\s|^)${cls}(\\s|$)`, "g");
         return str.replace(reg, "");
     }
-    checkTab(n) {
-        return n < 0 || isNaN(n) || n >= this.tabsNum ? 0 : n;
+    /**
+     * Utility function to remove the open class from tab titles.
+     *
+     * @param n - Tab to open.
+     */
+    function checkTab(n) {
+        return n < 0 || isNaN(n) || n >= tabsNum ? 0 : n;
     }
-    openTab(n) {
-        this.reset();
-        const i = this.checkTab(n);
-        this.elem.querySelectorAll("." + this.titleClass)[i].className += " " + this.activeClass;
-        this.elem.querySelectorAll("." + this.contentClass)[i].style.display = "";
+    /**
+     * Opens a tab by index.
+     *
+     * @param {number} n - Index of tab to open. Starts at 0.
+     *
+     * @public
+     */
+    function openTab(n) {
+        reset();
+        const i = checkTab(n);
+        elem.querySelectorAll(`.${titleClass}`)[i].classList.add(activeClass);
+        elem.querySelectorAll(`.${contentClass}`)[i].style.display = "";
     }
-    update(n) {
-        this.destroy();
-        this.reset();
-        this.render(n);
+    /**
+     * Updates the tabs.
+     *
+     * @param {number} n - Index of tab to open. Starts at 0.
+     *
+     * @public
+     */
+    function update(n) {
+        destroy();
+        reset();
+        render(n);
     }
-    destroy() {
-        this.elem.removeEventListener("click", this.onClick);
+    /**
+     * Removes the listeners from the tabs.
+     *
+     * @public
+     */
+    function destroy() {
+        elem.removeEventListener("click", onClick);
     }
-}
+    return {
+        open: openTab,
+        update,
+        destroy,
+    };
+};

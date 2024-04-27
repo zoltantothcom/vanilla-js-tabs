@@ -2,7 +2,7 @@ const fixturePath: string = "base/test/spec/fixtures";
 const tabsFixture: string = "tabs.fixture.html";
 
 interface Tabs {
-  openTab: (n: number) => void;
+  open: (n: number) => void;
   update: (n: number) => void;
   destroy: () => void;
 }
@@ -12,10 +12,10 @@ describe("TABS", function () {
     jasmine.getFixtures().fixturesPath = fixturePath;
     loadFixtures(tabsFixture);
 
-    const tabsInstance: Tabs = new Tabs({
+    const tabsInstance = Tabs({
       elem: "tabs",
       open: -123,
-    });
+    }) as Tabs;
 
     this.tabs = tabsInstance;
   });
@@ -47,8 +47,8 @@ describe("TABS", function () {
   });
 
   describe("methods", function () {
-    it("should have .openTab() method", function () {
-      expect(typeof this.tabs.openTab).toBe("function");
+    it("should have .open() method", function () {
+      expect(typeof this.tabs.open).toBe("function");
     });
 
     it("should have .update() method", function () {
@@ -65,21 +65,21 @@ describe("TABS", function () {
       jasmine.getFixtures().fixturesPath = fixturePath;
       loadFixtures(tabsFixture);
 
-      const tabsInstance: Tabs = new Tabs({
+      const tabsInstance: Tabs = Tabs({
         elem: "tabs",
       });
 
       this.tabs = tabsInstance;
     });
 
-    it("should default to 1st tab when .openTab() argument is invalid", function () {
-      this.tabs.openTab(-123);
+    it("should default to 1st tab when .open() argument is invalid", function () {
+      this.tabs.open(-123);
       expect($(".js-tabs__title")[0]).toHaveClass("js-tabs__title-active");
     });
 
-    it(".openTab(2) should open the 3rd tab", function () {
+    it(".open(2) should open the 3rd tab", function () {
       expect($(".js-tabs__title")[2]).not.toHaveClass("js-tabs__title-active");
-      this.tabs.openTab(2);
+      this.tabs.open(2);
       expect($(".js-tabs__title")[2]).toHaveClass("js-tabs__title-active");
     });
 
@@ -119,7 +119,7 @@ describe("TABS", function () {
     });
 
     it("should ignore any clicks in the content blocks", function () {
-      this.tabs.openTab(2);
+      this.tabs.open(2);
       expect($(".js-tabs__title")[2]).toHaveClass("js-tabs__title-active");
 
       const spyEvent = spyOnEvent(".js-tabs__content", "click");

@@ -1,86 +1,115 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
 
     <title>Vanilla JavaScript tabs - a tiny select tag replacement.</title>
-    
+
     <link rel="stylesheet" href="styles/docs-page.css" />
     <link rel="stylesheet" href="styles/vanilla-js-tabs.css" />
     <link rel="stylesheet" href="styles/prism.css" />
     <!--[if IE 9]>
-    <script src="//cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js"></script>
+      <script src="//cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js"></script>
     <![endif]-->
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <img src="images/vanilla-js-logo.png" alt="Vanilla JavaScript">
+      <img src="images/vanilla-js-logo.png" alt="Vanilla JavaScript" />
 
-        <h1>Vanilla JavaScript Tabs</h1>
+      <h1>Vanilla JavaScript Tabs</h1>
 
-        <h3>Tiny and awesome</h3>
+      <h3>Tiny and awesome</h3>
     </header>
 
     <section>
-        <h2>Demo</h2>
+      <h2>Demo</h2>
 
-        <div class="js-tabs" id="tabs">
-            
-            <ul class="js-tabs__header">
-                <li><a href="#" class="js-tabs__title">Title 1</a></li>
-                <li><a href="#" class="js-tabs__title">Title 2</a></li>
-                <li><a href="#" class="js-tabs__title">Title 3</a></li>
-                <li><a href="#" class="js-tabs__title">Title 4</a></li>
-            </ul>
-            
-            <div class="js-tabs__content">
-                <h1>ONE</h1>
-                <p>Shabby chic ennui cred godard, forage roof party scenester health goth typewriter pitchfork. Stumptown whatever fap, austin heirloom asymmetrical lo-fi ethical seitan. Post-ironic hella listicle brunch meggings artisan. YOLO tattooed blue bottle, fanny pack gluten-free put a bird on it migas forage trust fund.</p>
-            </div>
+      <div class="js-tabs" id="tabs">
+        <ul class="js-tabs__header">
+          <li><a href="#" class="js-tabs__title">Title 1</a></li>
+          <li><a href="#" class="js-tabs__title">Title 2</a></li>
+          <li><a href="#" class="js-tabs__title">Title 3</a></li>
+          <li><a href="#" class="js-tabs__title">Title 4</a></li>
+        </ul>
 
-            <div class="js-tabs__content">
-                <h1>TWO</h1>
-                <img src="http://lorempixel.com/600/100" alt="">
-                
-                <p>Shabby chic <a href="#">ennui</a> cred godard, forage roof party scenester health goth typewriter pitchfork. Stumptown whatever fap, austin heirloom asymmetrical lo-fi ethical seitan. Post-ironic hella listicle brunch meggings artisan. YOLO tattooed blue bottle, fanny pack gluten-free put a bird on it migas forage trust fund.</p>
-            </div>
-
-            <div class="js-tabs__content">
-                <h1>THREE</h1>
-                <img src="http://lorempixel.com/500/300" alt="">
-            </div>
-
-            <div class="js-tabs__content">
-                <h1>FOUR</h1>
-                <p>Meggings distillery pop-up artisan, hashtag 90's echo park kickstarter gluten-free. Pinterest gentrify squid vinyl chicharrones meh venmo. Beard aesthetic whatever bicycle rights artisan gastropub. Fingerstache bicycle rights you probably haven't heard of them, schlitz franzen semiotics microdosing.</p>
-                <p>Shabby chic ennui cred godard, forage roof party scenester health goth typewriter pitchfork. Stumptown whatever fap, austin heirloom asymmetrical lo-fi ethical seitan. Post-ironic hella listicle brunch meggings artisan. YOLO tattooed blue bottle, fanny pack gluten-free put a bird on it migas forage trust fund.</p>
-            </div>
-            
+        <div class="js-tabs__content">
+          <h1>ONE</h1>
+          <p>
+            Shabby chic ennui cred godard, forage roof party scenester health
+            goth typewriter pitchfork. Stumptown whatever fap, austin heirloom
+            asymmetrical lo-fi ethical seitan. Post-ironic hella listicle brunch
+            meggings artisan. YOLO tattooed blue bottle, fanny pack gluten-free
+            put a bird on it migas forage trust fund.
+          </p>
         </div>
+
+        <div class="js-tabs__content">
+          <h1>TWO</h1>
+          <img src="http://lorempixel.com/600/100" alt="" />
+
+          <p>
+            Shabby chic <a href="#">ennui</a> cred godard, forage roof party
+            scenester health goth typewriter pitchfork. Stumptown whatever fap,
+            austin heirloom asymmetrical lo-fi ethical seitan. Post-ironic hella
+            listicle brunch meggings artisan. YOLO tattooed blue bottle, fanny
+            pack gluten-free put a bird on it migas forage trust fund.
+          </p>
+        </div>
+
+        <div class="js-tabs__content">
+          <h1>THREE</h1>
+          <img src="http://lorempixel.com/500/300" alt="" />
+        </div>
+
+        <div class="js-tabs__content">
+          <h1>FOUR</h1>
+          <p>
+            Meggings distillery pop-up artisan, hashtag 90's echo park
+            kickstarter gluten-free. Pinterest gentrify squid vinyl chicharrones
+            meh venmo. Beard aesthetic whatever bicycle rights artisan
+            gastropub. Fingerstache bicycle rights you probably haven't heard of
+            them, schlitz franzen semiotics microdosing.
+          </p>
+          <p>
+            Shabby chic ennui cred godard, forage roof party scenester health
+            goth typewriter pitchfork. Stumptown whatever fap, austin heirloom
+            asymmetrical lo-fi ethical seitan. Post-ironic hella listicle brunch
+            meggings artisan. YOLO tattooed blue bottle, fanny pack gluten-free
+            put a bird on it migas forage trust fund.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section>
-        <h2>Download</h2>
+      <h2>Download</h2>
 
-        <p>Available on <a href="https://github.com/zoltantothcom/vanilla-js-tabs" target="_blank">GitHub</a></p>
+      <p>
+        Available on
+        <a
+          href="https://github.com/zoltantothcom/vanilla-js-tabs"
+          target="_blank"
+          >GitHub</a
+        >
+      </p>
     </section>
 
     <section>
-        <h2>Installation</h2>
+      <h2>Installation</h2>
 
-        <ol>
-            <li>
-                Include the script
-                <pre><code class="language-markup">&lt;script src="path/to/vanilla-js-tabs.min.js">&lt;/script></code></pre>
-            </li>
-            <li>
-                Include the CSS (<em>feel free to edit it or write your own</em>)
-                <pre><code class="language-markup">&lt;link rel="stylesheet" href="path/to/vanilla-js-tabs.css"></code></pre>
-            </li>
-            <li>
-                Write your tabs markup
+      <ol>
+        <li>
+          Include the script
+          <pre><code class="language-markup">&lt;script src="path/to/vanilla-js-tabs.min.js">&lt;/script></code></pre>
+        </li>
+        <li>
+          Include the CSS (<em>feel free to edit it or write your own</em>)
+          <pre><code class="language-markup">&lt;link rel="stylesheet" href="path/to/vanilla-js-tabs.css"></code></pre>
+        </li>
+        <li>
+          Write your tabs markup
 
-                <pre><code class="language-markup">&lt;div class="js-tabs" id="tabs">
+          <pre><code class="language-markup">&lt;div class="js-tabs" id="tabs">
                         
     &lt;ul class="js-tabs__header">
         &lt;li>&lt;a href="#" class="js-tabs__title">Title 1&lt;/a>&lt;/li>
@@ -107,111 +136,131 @@
     
 &lt;/div>
 </code></pre>
-            </li>
-            <li>
-                Initialize the tabs
-                <pre><code class="language-javascript">var tabs = new Tabs({
+        </li>
+        <li>
+          Initialize the tabs
+          <pre><code class="language-javascript">var tabs = new Tabs({
     elem: "tabs",
     open: 2
 });
 
 // Open any other tab
 tabs.open(4);</code></pre>
-            </li>
-        </ol>
+        </li>
+      </ol>
     </section>
 
     <section>
-        <h2>Options</h2>
+      <h2>Options</h2>
 
-        <table>
-            <tr>
-                <th>Option</th>
-                <th>Type</th>
-                <th>Default</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td>elem</td>
-                <td>string</td>
-                <td></td>
-                <td>HTML <i>id</i> of the tab container</td>
-            </tr>
-            <tr>
-                <td>open</td>
-                <td>number</td>
-                <td>0</td>
-                <td>Starts with this tab oipen</td>
-            </tr>
-        </table>
+      <table>
+        <tr>
+          <th>Option</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>elem</td>
+          <td>string</td>
+          <td></td>
+          <td>HTML <i>id</i> of the tab container</td>
+        </tr>
+        <tr>
+          <td>open</td>
+          <td>number</td>
+          <td>0</td>
+          <td>Starts with this tab oipen</td>
+        </tr>
+      </table>
     </section>
 
     <section>
-        <h2>Methods</h2>
+      <h2>Methods</h2>
 
-        <table>
-            <tr>
-                <th>Method</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td>.open(n)</td>
-                <td>Opens a tab by index</td>
-            </tr>
-            <tr>
-                <td>.update(n)</td>
-                <td>
-                    Updates tabs with <i>n</i>-th tab open<br />
-                    <i>(useful when dynamically adding tabs)</i>
-                </td>
-            </tr>
-            <tr>
-                <td>.destroy()</td>
-                <td>Removes the listeners</td>
-            </tr>
-        </table>
+      <table>
+        <tr>
+          <th>Method</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>.open(n)</td>
+          <td>Opens a tab by index</td>
+        </tr>
+        <tr>
+          <td>.update(n)</td>
+          <td>
+            Updates tabs with <i>n</i>-th tab open<br />
+            <i>(useful when dynamically adding tabs)</i>
+          </td>
+        </tr>
+        <tr>
+          <td>.destroy()</td>
+          <td>Removes the listeners</td>
+        </tr>
+      </table>
     </section>
 
     <section>
-        <h2>Licence</h2>
+      <h2>Licence</h2>
 
-        <div>
-            <p>This is free and unencumbered software released into the public domain.</p>
+      <div>
+        <p>
+          This is free and unencumbered software released into the public
+          domain.
+        </p>
 
-            <p>Anyone is free to copy, modify, publish, use, compile, sell, or
-            distribute this software, either in source code form or as a compiled
-            binary, for any purpose, commercial or non-commercial, and by any
-            means.</p>
+        <p>
+          Anyone is free to copy, modify, publish, use, compile, sell, or
+          distribute this software, either in source code form or as a compiled
+          binary, for any purpose, commercial or non-commercial, and by any
+          means.
+        </p>
 
-            <p>In jurisdictions that recognize copyright laws, the author or authors
-            of this software dedicate any and all copyright interest in the
-            software to the public domain. We make this dedication for the benefit
-            of the public at large and to the detriment of our heirs and
-            successors. We intend this dedication to be an overt act of
-            relinquishment in perpetuity of all present and future rights to this
-            software under copyright law.</p>
+        <p>
+          In jurisdictions that recognize copyright laws, the author or authors
+          of this software dedicate any and all copyright interest in the
+          software to the public domain. We make this dedication for the benefit
+          of the public at large and to the detriment of our heirs and
+          successors. We intend this dedication to be an overt act of
+          relinquishment in perpetuity of all present and future rights to this
+          software under copyright law.
+        </p>
 
-            <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-            EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-            MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-            IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-            OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-            ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-            OTHER DEALINGS IN THE SOFTWARE.</p>
+        <p>
+          THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+          EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+          MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+          IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+          OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+          ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+          OTHER DEALINGS IN THE SOFTWARE.
+        </p>
 
-            <p>For more information, please refer to <a href="http://unlicense.org/" target="_blank">http://unlicense.org</a></p>
-        </div>
+        <p>
+          For more information, please refer to
+          <a href="http://unlicense.org/" target="_blank"
+            >http://unlicense.org</a
+          >
+        </p>
+      </div>
     </section>
 
-    <a href="https://github.com/zoltantothcom"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+    <a href="https://github.com/zoltantothcom"
+      ><img
+        style="position: absolute; top: 0; right: 0; border: 0"
+        src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67"
+        alt="Fork me on GitHub"
+        data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"
+    /></a>
 
     <script src="javascript/prism.js"></script>
     <script src="javascript/vanilla-js-tabs.min.js"></script>
     <script>
-        var tabs = new Tabs({
-            elem: "tabs",
-            open: 1
-        });
+      var tabs = Tabs({
+        elem: "tabs",
+        open: 1,
+      });
     </script>
-</body>
+  </body>
 </html>
