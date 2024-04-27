@@ -3,7 +3,7 @@
  * @author Zoltan Toth
  * @version 2.0.0
  */
-let Tabs = function (options) {
+const Tabs = function (options) {
     const el = document.getElementById(options.elem);
     if (!el)
         throw new Error(`Element with ID "${options.elem}" not found`);

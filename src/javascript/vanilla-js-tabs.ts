@@ -24,7 +24,7 @@ interface Tabs {
   destroy: () => void;
 }
 
-let Tabs = function (options: TabsOptions): Tabs {
+const Tabs = function (options: TabsOptions): Tabs {
   const el: HTMLElement | null = document.getElementById(options.elem);
   if (!el) throw new Error(`Element with ID "${options.elem}" not found`);
 
