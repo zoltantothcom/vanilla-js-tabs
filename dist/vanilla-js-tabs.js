@@ -1,7 +1,7 @@
 /**
  * @fileOverview
  * @author Zoltan Toth
- * @version 2.0.0
+ * @version 2.0.1
  */
 const Tabs = function (options) {
     const el = document.getElementById(options.elem);
