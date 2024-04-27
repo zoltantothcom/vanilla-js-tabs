@@ -61,10 +61,12 @@ const Tabs = function (options: TabsOptions): Tabs {
    * @param {object} e - Element the click occured on.
    */
   function onClick(e: MouseEvent): void {
-    const target = e.target as HTMLElement;
-    if (!target || target.className.indexOf(titleClass) === -1) return;
+    const target = (e.target as HTMLElement).closest(`.${titleClass}`);
+    if (!target) return;
+
     e.preventDefault();
-    openTab(parseInt(target.getAttribute("data-index") || "0"));
+
+    openTab(parseInt(target.getAttribute("data-index") ?? "0"));
   }
 
   /**

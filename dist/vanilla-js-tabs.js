@@ -32,11 +32,12 @@ const Tabs = function (options) {
      * @param {object} e - Element the click occured on.
      */
     function onClick(e) {
-        const target = e.target;
-        if (!target || target.className.indexOf(titleClass) === -1)
+        var _a;
+        const target = e.target.closest(`.${titleClass}`);
+        if (!target)
             return;
         e.preventDefault();
-        openTab(parseInt(target.getAttribute("data-index") || "0"));
+        openTab(parseInt((_a = target.getAttribute("data-index")) !== null && _a !== void 0 ? _a : "0"));
     }
     /**
      * Hide all tabs and re-set tab titles.
